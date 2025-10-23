@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ *
+ * This source code is subject to the terms of the GNU General Public
+ * License, version 3. If a copy of the GPL was not distributed with this
+ * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
+ */
+package net.wurstclient.keybinds;
+
+import org.lwjgl.glfw.GLFW;
+
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.input.KeyInput;
+import net.minecraft.client.util.InputUtil;
+import net.wurstclient.WurstClient;
+import net.wurstclient.clickgui.screens.ClickGuiScreen;
+import net.wurstclient.command.CmdProcessor;
+import net.wurstclient.events.KeyPressListener;
+import net.wurstclient.hack.Hack;
+import net.wurstclient.hack.HackList;
+import net.wurstclient.util.ChatUtils;
+
+public final class KeybindProcessor implements KeyPressListener
+{
+	private final HackList hax;
+	private final KeybindList keybinds;
+	private final CmdProcessor cmdProcessor;
+	
+	public KeybindProcessor(HackList hax, KeybindList keybinds,
+		CmdProcessor cmdProcessor)
+	{
+		this.hax = hax;
+		this.keybinds = keybinds;
+		this.cmdProcessor = cmdProcessor;
+	}
+	
+	@Override
+	public void onKeyPress(KeyPressEvent event)
+	{
+		if(event.getAction() != GLFW.GLFW_PRESS)
+			return;
+		
+		if(InputUtil.isKeyPressed(WurstClient.MC.getWindow(), GLFW.GLFW_KEY_F3))
+			return;
+		
+		Screen screen = WurstClient.MC.currentScreen;
+		if(screen != null && !(screen instanceof ClickGuiScreen))
+			return;
+			
+		// if ClickGuiScreen is open and user typed a printable key, open
+		// navigator and pass the initial character
+		if(screen instanceof ClickGuiScreen)
+		{
+			String ch =
+				mapPrintableChar(event.getKeyCode(), event.getModifiers());
+			if(ch != null)
+			{
+				// open navigator without prepopulating the search to avoid
+				// the first character being entered twice (widget will receive
+				// it)
+				WurstClient.MC.setScreen(
+					new net.wurstclient.navigator.NavigatorMainScreen());
+				return;
+			}
+		}
+		
+		String keyName = getKeyName(event);
+		
+		String cmds = keybinds.getCommands(keyName);
+		if(cmds == null)
+			return;
+		
+		processCmds(cmds);
+	}
+	
+	private String mapPrintableChar(int keyCode, int modifiers)
+	{
+		// letters a-z
+		if(keyCode >= GLFW.GLFW_KEY_A && keyCode <= GLFW.GLFW_KEY_Z)
+		{
+			char c = (char)('a' + (keyCode - GLFW.GLFW_KEY_A));
+			return String.valueOf(c);
+		}
+		// numbers 0-9 (top row)
+		if(keyCode >= GLFW.GLFW_KEY_0 && keyCode <= GLFW.GLFW_KEY_9)
+		{
+			char c = (char)('0' + (keyCode - GLFW.GLFW_KEY_0));
+			return String.valueOf(c);
+		}
+		if(keyCode == GLFW.GLFW_KEY_SPACE)
+			return " ";
+		// add basic punctuation if desired
+		return null;
+	}
+	
+	private String getKeyName(KeyPressEvent event)
+	{
+		int keyCode = event.getKeyCode();
+		int scanCode = event.getScanCode();
+		return InputUtil
+			.fromKeyCode(new KeyInput(keyCode, scanCode, event.getModifiers()))
+			.getTranslationKey();
+	}
+	
+	private void processCmds(String cmds)
+	{
+		cmds = cmds.replace(";", "\u00a7").replace("\u00a7\u00a7", ";");
+		
+		for(String cmd : cmds.split("\u00a7"))
+			processCmd(cmd.trim());
+	}
+	
+	private void processCmd(String cmd)
+	{
+		if(cmd.startsWith("."))
+			cmdProcessor.process(cmd.substring(1));
+		else if(cmd.contains(" "))
+			cmdProcessor.process(cmd);
+		else
+		{
+			Hack hack = hax.getHackByName(cmd);
+			
+			if(hack == null)
+			{
+				cmdProcessor.process(cmd);
+				return;
+			}
+			
+			if(!hack.isEnabled() && hax.tooManyHaxHack.isEnabled()
+				&& hax.tooManyHaxHack.isBlocked(hack))
+			{
+				ChatUtils.error(hack.getName() + " is blocked by TooManyHax.");
+				return;
+			}
+			
+			hack.setEnabled(!hack.isEnabled());
+		}
+	}
+}

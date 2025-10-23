@@ -1,0 +1,188 @@
+/*
+ * Copyright (c) 2014-2025 Wurst-Imperium and contributors.
+ *
+ * This source code is subject to the terms of the GNU General Public
+ * License, version 3. If a copy of the GPL was not distributed with this
+ * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
+ */
+package net.wurstclient.settings;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
+import net.wurstclient.WurstClient;
+import net.wurstclient.clickgui.Component;
+import net.wurstclient.clickgui.components.ItemListEditButton;
+import net.wurstclient.keybinds.PossibleKeybind;
+import net.wurstclient.util.json.JsonException;
+import net.wurstclient.util.json.JsonUtils;
+import net.wurstclient.util.text.WText;
+
+public final class ItemListSetting extends Setting
+{
+	private final ArrayList<String> itemNames = new ArrayList<>();
+	private final String[] defaultNames;
+	
+	public ItemListSetting(String name, WText description, String... items)
+	{
+		super(name, description);
+		
+		Arrays.stream(items).forEach(this::addFromStringCanonicalizing);
+		defaultNames = itemNames.toArray(new String[0]);
+	}
+	
+	public ItemListSetting(String name, String descriptionKey, String... items)
+	{
+		this(name, WText.translated(descriptionKey), items);
+	}
+	
+	private void addFromStringCanonicalizing(String s)
+	{
+		if(s == null)
+			return;
+		String raw = s.trim();
+		if(raw.isEmpty())
+			return;
+		
+		Identifier id = Identifier.tryParse(raw);
+		String name = raw;
+		if(id != null && Registries.ITEM.containsId(id))
+			name = id.toString();
+		
+		if(Collections.binarySearch(itemNames, name) < 0)
+		{
+			itemNames.add(name);
+			Collections.sort(itemNames);
+		}
+	}
+	
+	public List<String> getItemNames()
+	{
+		return Collections.unmodifiableList(itemNames);
+	}
+	
+	public void add(Item item)
+	{
+		String name = Registries.ITEM.getId(item).toString();
+		if(Collections.binarySearch(itemNames, name) >= 0)
+			return;
+		
+		itemNames.add(name);
+		Collections.sort(itemNames);
+		WurstClient.INSTANCE.saveSettings();
+	}
+	
+	// New: allow adding raw keyword entries
+	public void addRawName(String raw)
+	{
+		int before = itemNames.size();
+		addFromStringCanonicalizing(raw);
+		if(itemNames.size() != before)
+			WurstClient.INSTANCE.saveSettings();
+	}
+	
+	public void remove(int index)
+	{
+		if(index < 0 || index >= itemNames.size())
+			return;
+		itemNames.remove(index);
+		WurstClient.INSTANCE.saveSettings();
+	}
+	
+	public void resetToDefaults()
+	{
+		itemNames.clear();
+		itemNames.addAll(Arrays.asList(defaultNames));
+		WurstClient.INSTANCE.saveSettings();
+	}
+	
+	public void clear()
+	{
+		itemNames.clear();
+		WurstClient.INSTANCE.saveSettings();
+	}
+	
+	@Override
+	public Component getComponent()
+	{
+		return new ItemListEditButton(this);
+	}
+	
+	@Override
+	public void fromJson(JsonElement json)
+	{
+		try
+		{
+			itemNames.clear();
+			
+			// if string "default", load default items
+			if(JsonUtils.getAsString(json, "nope").equals("default"))
+			{
+				itemNames.addAll(Arrays.asList(defaultNames));
+				return;
+			}
+			
+			// otherwise, load strings; keep unknown as raw keywords
+			for(String s : JsonUtils.getAsArray(json).getAllStrings())
+				addFromStringCanonicalizing(s);
+			
+		}catch(JsonException e)
+		{
+			e.printStackTrace();
+			resetToDefaults();
+		}
+	}
+	
+	@Override
+	public JsonElement toJson()
+	{
+		// if itemNames is the same as defaultNames, save string "default"
+		if(itemNames.equals(Arrays.asList(defaultNames)))
+			return new JsonPrimitive("default");
+		
+		JsonArray json = new JsonArray();
+		itemNames.forEach(s -> json.add(s));
+		return json;
+	}
+	
+	@Override
+	public JsonObject exportWikiData()
+	{
+		JsonObject json = new JsonObject();
+		json.addProperty("name", getName());
+		json.addProperty("description", getDescription());
+		json.addProperty("type", "ItemList");
+		
+		JsonArray defaultItems = new JsonArray();
+		Arrays.stream(defaultNames).forEachOrdered(s -> defaultItems.add(s));
+		json.add("defaultItems", defaultItems);
+		
+		return json;
+	}
+	
+	@Override
+	public Set<PossibleKeybind> getPossibleKeybinds(String featureName)
+	{
+		String fullName = featureName + " " + getName();
+		
+		String command = ".itemlist " + featureName.toLowerCase() + " ";
+		command += getName().toLowerCase().replace(" ", "_") + " ";
+		
+		LinkedHashSet<PossibleKeybind> pkb = new LinkedHashSet<>();
+		pkb.add(new PossibleKeybind(command + "reset", "Reset " + fullName));
+		
+		return pkb;
+	}
+}
