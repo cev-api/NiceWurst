@@ -10,7 +10,7 @@
 
 ## Relationship to upstream
 
-This project is a fork of Wurst 7 Cevapi. The goal is to make a non-cheating, friendly normal version of Wurst and thus of my fork Wurst 7 Cevapi. All hacks that would be considered cheats have been removed. ESP and other things do not see through walls and only highlight what you can see.
+This fork periodically merges upstream improvements from both Wurst-Imperium and the intermediary CevAPI fork, while keeping its non-cheating vision intact.
 
 - Upstream repository: https://github.com/cev-api/Wurst7-CevAPI
 - This fork: https://github.com/cev-api/NiceWurst
@@ -19,7 +19,7 @@ This project is a fork of Wurst 7 Cevapi. The goal is to make a non-cheating, fr
 All credit for the original client goes to Wurst-Imperium and its contributors. This fork is not affiliated with or endorsed by Wurst-Imperium. This fork maintains the original GPLv3 licensing.
 
 ---
-## Available 'Hacks'
+## Available Features (Non-Cheating Utilities)
 
 ### Blocks
 - AutoBuild
@@ -91,9 +91,11 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 
 ### How is this not cheating?
 
-- All hacks that would be considered cheating were removed, all remaining hacks that have cheating features that can be modified have been. So ESP will no longer work through walls. I believe that keeping these is OKAY and an important mod as allowing you to search and highlight specific mobs and items SO LONG AS YOU ARE IN VISUAL RANGE is acceptable. If this fork is rejected from platforms such as Modrinth or whatever because of these features, they will be removed. The goal is to make a mainstream mod out of Wurst that can be allowed on public SMPs and not be considered cheating or hacking in any way.
+- All modules that would be considered cheating have been removed or re-implemented to respect normal gameplay visibility rules. ESP modules no longer see through walls — they only highlight what’s visible. The goal is to keep helpful visualization and automation while maintaining fair-play integrity.
 
 ## New Core Features by CevAPI
+
+- These features were originally developed in the CevAPI fork of Wurst 7 and are fully integrated and maintained in NiceWurst.
 
 ### MobSearch
 - Search mobs by fuzzy name/ID or exact type (e.g., `minecraft:zombie` or `zombie`).  
