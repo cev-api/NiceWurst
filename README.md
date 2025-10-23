@@ -89,6 +89,10 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 - EnchantmentHandler
 - SignFramePT
 
+### How is this not cheating?
+
+- All hacks that would be considered cheating were removed, all remaining hacks that have cheating features that can be modified have been. So ESP will no longer work through walls. I believe that keeping these is OKAY and an important mod as allowing you to search and highlight specific mobs and items SO LONG AS YOU ARE IN VISUAL RANGE is acceptable. If this fork is rejected from platforms such as Modrinth or whatever because of these features, they will be removed. The goal is to make a mainstream mod out of Wurst that can be allowed on public SMPs and not be considered cheating or hacking in any way.
+
 ## New Core Features by CevAPI
 
 ### MobSearch
