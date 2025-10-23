@@ -2,7 +2,7 @@
 
 ![CevAPI Logo](https://i.imgur.com/Uju0ZZJ.png)
 
-- Original Repo: https://github.com/Wurst-Imperium/Wurst7  
+- Original Repo: https://github.com/cev-api/Wurst7-CevAPI
 - Downloads: [https://www.wurstclient.net/download/](https://go.wimods.net/from/github.com/Wurst-Imperium/Wurst7?to=https%3A%2F%2Fwww.wurstclient.net%2Fdownload%2F%3Futm_source%3DGitHub%26utm_medium%3DWurst7%2Brepo)  
 - Installation guide: [https://www.wurstclient.net/tutorials/how-to-install/](https://go.wimods.net/from/github.com/Wurst-Imperium/Wurst7?to=https%3A%2F%2Fwww.wurstclient.net%2Ftutorials%2Fhow-to-install%2F%3Futm_source%3DGitHub%26utm_medium%3DWurst7%2Brepo)  
 - Feature list: [https://www.wurstclient.net/](https://go.wimods.net/from/github.com/Wurst-Imperium/Wurst7?to=https%3A%2F%2Fwww.wurstclient.net%2F%3Futm_source%3DGitHub%26utm_medium%3DWurst7%2Brepo)  
@@ -10,18 +10,86 @@
 
 ## Relationship to upstream
 
-This project is a friendly, independent fork of Wurst 7. I originally proposed these features upstream and the maintainers kindly declined, so I’m keeping them in a separate fork. I’ll continue to maintain these additions and periodically re-base/sync with the upstream project.
+This project is a fork of Wurst 7 Cevapi. The goal is to make a non-cheating, friendly normal version of Wurst and thus of my fork Wurst 7 Cevapi. All hacks that would be considered cheats have been removed. ESP and other things do not see through walls and only highlight what you can see.
 
-- Upstream repository: https://github.com/Wurst-Imperium/Wurst7  
-- This fork: https://github.com/cev-api/Wurst7-CevAPI  
+- Upstream repository: https://github.com/cev-api/Wurst7-CevAPI
+- This fork: https://github.com/cev-api/NiceWurst
 - Status: actively maintained and re-based as upstream evolves  
-- Will try and support at least the latest two Minecraft versions
 
 All credit for the original client goes to Wurst-Imperium and its contributors. This fork is not affiliated with or endorsed by Wurst-Imperium. This fork maintains the original GPLv3 licensing.
 
 ---
+## Available 'Hacks'
 
-## What’s new in this fork?
+### Blocks
+- AutoBuild
+- AutoSign
+- AutoTool
+- BuildRandom
+- Excavator
+- InstantBunker
+- ScaffoldWalk
+- Template Tool
+
+### Movement
+- AutoSprint
+- AutoSwim
+- AutoWalk
+- Bunnyhop
+- Dolphin
+- InvWalk
+- SafeWalk
+- Sneak
+
+### Combat
+- AutoLeave
+- AutoRespawn
+- AutoTotem
+
+### Render
+- Breadcrumbs
+- Fullbright
+- HealthTags
+- ItemESP (Modified)
+- LavaWaterESP
+- LogoutSpots (Modified)
+- MobESP (Modified)
+- MobSearch (Modified)
+- MobSpawnESP
+- NewChunks
+- NoBackground
+- NoFireOverlay
+- NoVignette
+- NoWeather
+- OpenWaterESP
+- PlayerESP (Modified)
+- PortalESP (Modified)
+- Radar
+- Search (Modified)
+- TridentESP (Modified)
+- Waypoints
+
+### Other
+- AntiAFK
+- AutoFish
+- AutoLibrarian
+- AutoReconnect
+- CheatDetector
+- FeedAura
+- Panic
+- PortalGUI
+- TooManyHax
+
+### Items
+- AntiDrop
+- AutoDisenchant
+- AutoDrop
+- AutoSteal
+- ChestSearch
+- EnchantmentHandler
+- SignFramePT
+
+## New Core Features by CevAPI
 
 ### MobSearch
 - Search mobs by fuzzy name/ID or exact type (e.g., `minecraft:zombie` or `zombie`).  
@@ -30,34 +98,6 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 - Rendering: Boxes, Octahedrons, Lines, or Both. Rainbow or fixed color, filled or unfilled and configurable box size.
 
 ![MobSearch](https://i.imgur.com/PeklZSq.png)
-
-### BedESP
-- Finds all bed types.  
-- Chunk-based scanning with configurable color and Box/Line style.  
-- Rendering: Boxes, Lines, or Both in a fixed color.
-
-![BedESP](https://i.imgur.com/kPHKPDz.png)
-
-### SignESP
-- Finds all sign types/materials.  
-- Option: include frames (item frames + glow item frames) with a separate color.  
-- Rendering: Boxes, Lines, or Both in a fixed color.
-
-![SignESP](https://i.imgur.com/oD0tV1l.png)
-
-### WorkstationESP
-- Highlights crafting/workstation blocks: Crafting Table, Smithing Table, Anvil, Grindstone, Enchanting Table, Cartography Table, Stonecutter, Loom, Furnace, Blast Furnace, Smoker, Campfire, Soul Campfire, Brewing Stand, Cauldron, Barrel, Composter, Lectern, Fletching Table, Beacon.  
-- Per-block toggles and colors. Defaults: all enabled.  
-- Rendering: Boxes, Lines, or Both in a fixed color.
-
-![WorkStation](https://i.imgur.com/OloVtTi.png)
-
-### RedstoneESP
-- Highlights redstone components: Torch/Block, Lever, Tripwire Hook, Target Block, Dust, Repeater, Comparator, Observer, Daylight Detector, Skulk Sensor (+ Calibrated), Pistons, Dispenser, Dropper, Hopper, Trapped Chest, Note Block, Jukebox, Bell, Lectern (redstone), Powered/Detector/Activator Rails.  
-- Buttons and pressure plates are grouped with individual toggles + colors.  
-- Rendering: Boxes, Lines, or Both in a fixed color.
-
-![RedStone](https://i.imgur.com/Vf9dI8W.png)
 
 ### TridentESP
 - Highlights thrown tridents, plus held tridents by players/mobs.  
@@ -140,33 +180,14 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 
 ![Disc](https://i.imgur.com/b327XLx.png)
 
-### Anti-Fingerprint
-- Detects and stops resource-pack fingerprinting. 
-  - Basic protections are already enabled by default.
-- Policies: Observe (vanilla prompt + log), BlockLocal (decline private/LAN), BlockAll (decline all), SandboxAll (server sees fail; client saves copy). 
-- Detects burst requests (N in M ms) with toasts; supports host whitelist. 
-- Cache defenses: clear before download and per-session cache isolation. 
-- Sandbox: optional auto-extract of resource-packs for inspection. 
-- Telemetry: toast verbosity + audit log (host/IP/URL/UUID/required, cache/sandbox paths). 
-- Access via Other → Anti-Fingerprint, Wurst Options, and Multiplayer/Server Finder buttons. 
-
-![AntiFingerprint](https://i.imgur.com/4xycaQG.png)
-
-### Cheat Detect
+### Cheat Detector
 - Watches other players each tick, tracking motion/swing stats to detect suspicious patterns
 - Detects speed, flight, boat flight and high CPS sword swings
 - Able to adjust the sensitivity for each detection
 - Alerts throttle themselves to prevent spam
-- Able to detect if other players are as cool as you!
+- Able to detect if other players awful bad cheaters!
 
 ![Cheater](https://i.imgur.com/beZoL1U.png)
-
-### SurfaceXRay
-- Makes the exposed surface of tracked blocks or fluids like lava or water partially or fully transparent while clearing the matching volume underneath.
-- Works together with XRay
-- Add items with the list UI, meaning you can add keywords or just select multiple blocks easily. 
-
-![Surface](https://i.ibb.co.com/WptKT2yY/Untitldded.png) 
 
 ### AntiDrop
 - Prevents you from dropping the selected items by accident. Defaults to all weapons, tools, and shulker boxes.
@@ -179,7 +200,7 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 
 ![Chest](https://i.ibb.co/0yRPQ0jy/javaw-sg-VUhu-MCDY.png)
 
-## What’s changed or improved in this fork?
+## What’s changed or improved in this fork compared to the original Wurst?
 
 ### ItemESP (Expanded)
 Highlights dropped, equipped, and framed items with powerful filters and customization.
@@ -201,7 +222,7 @@ Examples:
 
 ![Item](https://i.imgur.com/nsWLDdJ.png)
 
-### List UI (Search, MobSearch, ItemESP, Xray etc) Improvements
+### List UI (Search, MobSearch, ItemESP etc) Improvements
 - Able to specifically enter and save keywords into the list (Great for custom items on modded servers).
 - Able to clear the entire list with a single button
 
@@ -228,16 +249,6 @@ Examples:
 
 ![Search](https://i.imgur.com/zpITuWb.png)
 
-### X-Ray Improvements
-- Added ESP (Highlight Corners and or Fill Blocks)
-    - Uses cached positions for speed
-    - Optional transparency slider for ESP
-- Multi-term queries: comma-separated (e.g., `diamond, ancient`).  
-- Opacity, block type changes and 'only show exposed' apply live without toggling.  
-- New minimum search to 100 blocks.
-
-![X](https://i.imgur.com/CXm2HzS.png)
-
 ### PlayerESP Improvements
 - Added toggle for unique colors for each player (shared with Breadcrumbs)
 - Added box fill with transparency slider
@@ -250,14 +261,8 @@ Examples:
 
 ![ESP](https://i.imgur.com/1F7zU31.png)
 
-### Nuker Improvements
-- Auto toggle AutoTool option (If it wasn't on already, it will be enabled when using Nuker then turned off with Nuker)
-
 ### AutoSteal Improvements
 - Toggle 'Steal/Store Same' to move items that match the same ones in the players inventory or chest. Bind-able to a key.
-
-### BaseFinder Improvements
-- Updated natural blocks list to latest versions.  
 
 ### MobESP Improvements
 - Added rainbow/fixed color options for boxes/lines.  
@@ -313,7 +318,6 @@ Examples:
 ### Notes
 - Scanning only includes server-loaded chunks. Larger radii work best in single-player or on high view distance servers.  
 
----
 
 ## License
 
