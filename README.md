@@ -91,11 +91,11 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 
 ### How is this not cheating?
 
-- All modules that would be considered cheating have been removed or re-implemented to respect normal gameplay visibility rules. ESP modules no longer see through walls — they only highlight what’s visible. The goal is to keep helpful visualization and automation while maintaining fair-play integrity.
+All modules that would be considered cheating have been removed or re-implemented to respect normal gameplay visibility rules. For example, ESP modules no longer see through walls — they only highlight what’s visible. The goal is to keep helpful visualization and automation while maintaining fair-play integrity.
 
 ## New Core Features by CevAPI
 
-- These features were originally developed in the CevAPI fork of Wurst 7 and are fully integrated and maintained in NiceWurst.
+These features were originally developed in the CevAPI fork of Wurst 7 and are fully integrated and maintained in NiceWurst.
 
 ### MobSearch
 - Search mobs by fuzzy name/ID or exact type (e.g., `minecraft:zombie` or `zombie`).  
