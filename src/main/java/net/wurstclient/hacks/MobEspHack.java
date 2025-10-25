@@ -17,7 +17,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.events.CameraTransformViewBobbingListener;
@@ -291,4 +290,3 @@ public final class MobEspHack extends Hack implements UpdateListener,
 		}
 	}
 }
-

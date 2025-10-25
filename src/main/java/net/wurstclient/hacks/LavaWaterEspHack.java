@@ -193,9 +193,8 @@ public final class LavaWaterEspHack extends Hack implements UpdateListener,
 				: waterAlpha.getValueI();
 			int quadsColor = group.getColorI(alpha);
 			int linesColor = group.getColorI(alpha);
-			RenderUtils.drawSolidBoxes(matrixStack, boxes, quadsColor, false);
-			RenderUtils.drawOutlinedBoxes(matrixStack, boxes, linesColor,
-				false);
+			RenderUtils.drawSolidBoxes(matrixStack, boxes, quadsColor, true);
+			RenderUtils.drawOutlinedBoxes(matrixStack, boxes, linesColor, true);
 		}
 	}
 	
@@ -206,12 +205,15 @@ public final class LavaWaterEspHack extends Hack implements UpdateListener,
 			if(!group.isEnabled())
 				continue;
 			List<Box> boxes = group.getBoxes();
-			List<Vec3d> ends = boxes.stream().map(Box::getCenter).toList();
+			List<Vec3d> ends = boxes.stream().map(Box::getCenter)
+				.filter(RenderUtils::hasLineOfSight).toList();
+			if(ends.isEmpty())
+				continue;
 			int alpha = group == lavaGroup ? lavaAlpha.getValueI()
 				: waterAlpha.getValueI();
 			int color = group.getColorI(alpha);
 			RenderUtils.drawTracers(matrixStack, partialTicks, ends, color,
-				false);
+				true);
 		}
 	}
 	

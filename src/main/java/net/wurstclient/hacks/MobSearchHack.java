@@ -21,7 +21,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.wurstclient.Category;
 import net.wurstclient.SearchTags;
 import net.wurstclient.events.CameraTransformViewBobbingListener;
@@ -447,4 +446,3 @@ public final class MobSearchHack extends Hack implements UpdateListener,
 		}
 	}
 }
-

@@ -77,6 +77,7 @@ public final class HackList implements UpdateListener
 	public final NoVignetteHack noVignetteHack = new NoVignetteHack();
 	public final NoWeatherHack noWeatherHack = new NoWeatherHack();
 	public final OpenWaterEspHack openWaterEspHack = new OpenWaterEspHack();
+	public final FreecamHack freecamHack = new FreecamHack();
 	public final PlayerEspHack playerEspHack = new PlayerEspHack();
 	public final PortalEspHack portalEspHack = new PortalEspHack();
 	public final RadarHack radarHack = new RadarHack();

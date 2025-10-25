@@ -128,7 +128,8 @@ public final class KeybindList
 		addKB(set, "r", "radar");
 		addKB(set, "right.shift", "navigator");
 		addKB(set, "right.control", "clickgui");
-		addKB(set, "u", "autofish");
+		addKB(set, "u", "freecam");
+		addKB(set, "o", "autofish");
 		addKB(set, "x", "mobsearch");
 		addKB(set, "y", "sneak");
 		// Default shortcut to open the Waypoints manager

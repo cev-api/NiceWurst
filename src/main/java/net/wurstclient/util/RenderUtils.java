@@ -87,9 +87,9 @@ public enum RenderUtils
 			return true;
 		
 		var entity = WurstClient.MC.getCameraEntity();
-		RaycastContext context = new RaycastContext(start, target,
-			RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE,
-			entity);
+		RaycastContext context =
+			new RaycastContext(start, target, RaycastContext.ShapeType.COLLIDER,
+				RaycastContext.FluidHandling.NONE, entity);
 		HitResult hit = WurstClient.MC.world.raycast(context);
 		if(hit == null || hit.getType() == HitResult.Type.MISS)
 			return true;
@@ -164,6 +164,9 @@ public enum RenderUtils
 	public static void drawTracer(MatrixStack matrices, float partialTicks,
 		Vec3d end, int color, boolean depthTest)
 	{
+		if(end == null || !hasLineOfSight(end))
+			return;
+		
 		VertexConsumerProvider.Immediate vcp = getVCP();
 		RenderLayer layer = WurstRenderLayers.getLines(depthTest);
 		VertexConsumer buffer = vcp.getBuffer(layer);
@@ -185,7 +188,11 @@ public enum RenderUtils
 		Vec3d start = getTracerOrigin(partialTicks);
 		Vec3d offset = getCameraPos().negate();
 		for(Vec3d end : ends)
+		{
+			if(end == null || !hasLineOfSight(end))
+				continue;
 			drawLine(matrices, buffer, start, end.add(offset), color);
+		}
 		
 		vcp.draw(layer);
 	}
@@ -200,8 +207,15 @@ public enum RenderUtils
 		Vec3d start = getTracerOrigin(partialTicks);
 		Vec3d offset = getCameraPos().negate();
 		for(ColoredPoint end : ends)
+		{
+			if(end == null)
+				continue;
+			Vec3d point = end.point();
+			if(point == null || !hasLineOfSight(point))
+				continue;
 			drawLine(matrices, buffer, start, end.point().add(offset),
 				end.color());
+		}
 		
 		vcp.draw(layer);
 	}
@@ -219,8 +233,15 @@ public enum RenderUtils
 		Vec3d start = getTracerOrigin(partialTicks);
 		Vec3d offset = getCameraPos().negate();
 		for(ColoredPoint end : ends)
+		{
+			if(end == null)
+				continue;
+			Vec3d point = end.point();
+			if(point == null || !hasLineOfSight(point))
+				continue;
 			drawLine(matrices, buffer, start, end.point().add(offset),
 				end.color());
+		}
 		
 		vcp.draw(layer);
 	}

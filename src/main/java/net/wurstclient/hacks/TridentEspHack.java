@@ -346,4 +346,3 @@ public final class TridentEspHack extends Hack implements UpdateListener,
 		return new Box(c.x - r, c.y - r, c.z - r, c.x + r, c.y + r, c.z + r);
 	}
 }
-

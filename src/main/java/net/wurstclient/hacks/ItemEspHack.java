@@ -288,17 +288,21 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 				.offset(0, extraSize, 0).expand(extraSize);
 			boolean isSpecial = isSpecial(stack);
 			visibleDrops++;
-			if(isSpecial)
-				specialBoxes.add(box);
-			else
-				normalBoxes.add(box);
-			
 			Vec3d center =
 				EntityUtils.getLerpedBox(e, partialTicks).getCenter();
+			boolean visible = RenderUtils.hasLineOfSight(center);
+			
 			if(isSpecial)
-				specialEnds.add(center);
-			else
-				normalEnds.add(center);
+			{
+				specialBoxes.add(box);
+				if(visible)
+					specialEnds.add(center);
+			}else
+			{
+				normalBoxes.add(box);
+				if(visible)
+					normalEnds.add(center);
+			}
 		}
 		foundCount = Math.min(visibleDrops, 999);
 		
@@ -322,7 +326,9 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 				Box fbox = EntityUtils.getLerpedBox(frame, partialTicks)
 					.offset(0, extraSize, 0).expand(extraSize);
 				specialBoxes.add(fbox);
-				specialEnds.add(fbox.getCenter());
+				Vec3d center = fbox.getCenter();
+				if(RenderUtils.hasLineOfSight(center))
+					specialEnds.add(center);
 			}
 		}
 		
@@ -350,7 +356,9 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 					if(b != null)
 					{
 						specialBoxes.add(b);
-						specialEnds.add(b.getCenter());
+						Vec3d center = b.getCenter();
+						if(RenderUtils.hasLineOfSight(center))
+							specialEnds.add(center);
 					}
 				}
 				ItemStack off = le.getOffHandStack();
@@ -365,7 +373,9 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 					if(b != null)
 					{
 						specialBoxes.add(b);
-						specialEnds.add(b.getCenter());
+						Vec3d center = b.getCenter();
+						if(RenderUtils.hasLineOfSight(center))
+							specialEnds.add(center);
 					}
 				}
 				// head worn
@@ -381,7 +391,8 @@ public final class ItemEspHack extends Hack implements UpdateListener,
 							continue;
 						Box b = smallBoxAt(hp);
 						specialBoxes.add(b);
-						specialEnds.add(hp);
+						if(RenderUtils.hasLineOfSight(hp))
+							specialEnds.add(hp);
 					}
 				}
 			}
