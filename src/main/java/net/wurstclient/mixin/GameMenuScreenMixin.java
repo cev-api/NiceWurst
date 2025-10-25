@@ -91,7 +91,7 @@ public abstract class GameMenuScreenMixin extends Screen
 		ensureSpaceAvailable(buttonX, buttonY, buttonWidth, buttonHeight);
 		
 		// Create Wurst Options button with full label instead of padded spaces
-		MutableText buttonText = Text.literal("Wurst 7 CevAPI Options");
+		MutableText buttonText = Text.literal("NiceWurst Options");
 		wurstOptionsButton = ButtonWidget
 			.builder(buttonText, b -> openWurstOptions())
 			.dimensions(buttonX, buttonY, buttonWidth, buttonHeight).build();

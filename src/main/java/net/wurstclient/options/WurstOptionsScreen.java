@@ -127,7 +127,7 @@ public class WurstOptionsScreen extends Screen
 		OperatingSystem os = Util.getOperatingSystem();
 		new WurstOptionsButton(54, 24, () -> "CevAPI Github",
 			"§n§lGitHub page for CevAPI, the maker of this Wurst Client fork",
-			b -> os.open("https://github.com/cev-api/Wurst7-CevAPI"));
+			b -> os.open("https://github.com/cev-api/NiceWurst"));
 		
 		new WurstOptionsButton(54, 48, () -> "Wurst Website",
 			"§n§lWurstClient.net",

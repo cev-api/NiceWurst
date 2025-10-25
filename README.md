@@ -49,6 +49,7 @@ All credit for the original client goes to Wurst-Imperium and its contributors. 
 ### Render
 - Breadcrumbs
 - Fullbright
+- FreeCam (Modified)
 - HealthTags
 - ItemESP (Modified)
 - LavaWaterESP

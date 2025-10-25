@@ -54,6 +54,7 @@ public final class HackList implements UpdateListener
 	public final BunnyHopHack bunnyHopHack = new BunnyHopHack();
 	public final DolphinHack dolphinHack = new DolphinHack();
 	public final SafeWalkHack safeWalkHack = new SafeWalkHack();
+	public final InvWalkHack invWalkHack = new InvWalkHack();
 	public final SneakHack sneakHack = new SneakHack();
 	
 	// Combat

@@ -24,7 +24,7 @@ public final class WurstLogo
 			return;
 		
 		String version = getVersionString();
-		String brand = "Wurst 7 CevAPI";
+		String brand = "NiceWurst";
 		TextRenderer tr = WurstClient.MC.textRenderer;
 		
 		// Measure and layout
