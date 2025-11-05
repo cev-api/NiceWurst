@@ -1,7 +1,7 @@
 ﻿# 🌸 NiceWurst — Build Guide
 
 **NiceWurst** is a *cheat-free, survival-friendly* variant of the [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client.  
-It’s designed for players who want Wurst’s quality-of-life and creative utilities — without unfair features.
+It’s designed for players who want Wurst 7 CevAPI’s quality-of-life and creative utilities — without unfair features.
 
 You don’t need a separate repository or fork which is why this one is empty.
 Just clone Wurst7-CevAPI and compile it with a single Gradle flag: `-Pnicewurst=1`.
