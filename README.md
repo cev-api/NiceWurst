@@ -29,7 +29,7 @@ When built with `-Pnicewurst=1`, the project automatically:
 | **Git** | Used to clone and update the repo. |
 | **Gradle Wrapper** | Included (`gradlew.bat` / `./gradlew`). No global install needed. |
 | **~4 GB Free Disk Space** | For caches and build outputs. |
-| **Fabric for MC1.21.10** |
+| **Fabric for MC1.21.10** | Lightweight modding framework and loader required to run client-side mods like Wurst7 and NiceWurst. Install the Fabric Loader for Minecraft 1.21.10 and use a compatible Fabric API version (e.g. 0.137.0 + 1.21.10). |
 
 ---
 
