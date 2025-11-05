@@ -100,7 +100,7 @@ AutoRespawn · AutoTotem · AutoLeave
 Breadcrumbs · Fullbright · HealthTags · ItemESP · LavaWaterESP · LogoutSpots · MobESP · MobSearch · MobSpawnESP · NewChunks · NoBackground · NoFireOverlay · NoVignette · NoWeather · Freecam · OpenWaterESP · PlayerESP · PortalESP · Radar · Search · TridentESP · Waypoints
 
 ### **Other**
-AntiAFK · AutoFish · AutoLibrarian · AutoReconnect · CheatDetector · FeedAura · Panic · PortalGUI · TooManyHax (ClickGUI/Navigator are preserved separately)
+AntiAFK · AutoFish · AutoLibrarian · AutoReconnect · CheatDetector · FeedAura · Panic · PortalGUI · SafeTP · TooManyHax (ClickGUI/Navigator are preserved separately)
 
 ### **Items**
 AntiDrop · AutoDisenchant · AutoDrop · AutoEat · AutoSteal · ChestSearch · EnchantmentHandler · SignFramePT
