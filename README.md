@@ -4,7 +4,9 @@
 It’s designed for players who want Wurst 7 CevAPI’s quality-of-life and creative utilities — without unfair features.
 
 You don’t need a separate repository or fork which is why this one is empty.
-Just clone Wurst7-CevAPI and compile it with a single Gradle flag: `-Pnicewurst=1`.
+Just clone [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI)  and compile it with a single Gradle flag: `-Pnicewurst=1`.
+
+This means as [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) is updated, so is NiceWurst!
 
 ---
 
@@ -100,7 +102,7 @@ AutoRespawn · AutoTotem · AutoLeave
 Breadcrumbs · Fullbright · HealthTags · ItemESP · LavaWaterESP · LogoutSpots · MobESP · MobSearch · MobSpawnESP · NewChunks · NoBackground · NoFireOverlay · NoVignette · NoWeather · Freecam · OpenWaterESP · PlayerESP · PortalESP · Radar · Search · TridentESP · Waypoints
 
 ### **Other**
-AntiAFK · AutoFish · AutoLibrarian · AutoReconnect · CheatDetector · FeedAura · Panic · PortalGUI · SafeTP · TooManyHax (ClickGUI/Navigator are preserved separately)
+AntiAFK · AntiSocial · AutoFish · AutoLibrarian · AutoReconnect · CheatDetector · FeedAura · Panic · PortalGUI · SafeTP · TooManyHax (ClickGUI/Navigator are preserved separately)
 
 ### **Items**
 AntiDrop · AutoDisenchant · AutoDrop · AutoEat · AutoSteal · ChestSearch · EnchantmentHandler · SignFramePT
