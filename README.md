@@ -10,6 +10,12 @@ This means as [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) is updat
 
 ---
 
+## Where Can I Download It?
+
+I have pre-compiled releases within [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) but if you want the latest pre-releases you'll have to keep reading and compile it yourself!
+
+---
+
 ## What Makes NiceWurst Different
 
 When built with `-Pnicewurst=1`, the project automatically:
