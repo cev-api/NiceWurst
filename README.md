@@ -1,5 +1,7 @@
 ﻿# 🌸 NiceWurst — Build Guide
 
+![NiceWurst](https://i.imgur.com/86vmxQi.png)
+
 **NiceWurst** is a *cheat-free, survival-friendly* variant of the [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client.  
 It’s designed for players who want Wurst 7 CevAPI’s quality-of-life and creative utilities — without unfair features.
 
