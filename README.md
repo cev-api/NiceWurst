@@ -16,6 +16,10 @@ This means as [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) is updat
 
 I have pre-compiled releases within [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI/releases) but if you want the latest pre-releases you'll have to keep reading and compile it yourself!
 
+### Modrinth
+
+This mod has been approved for listing on [Modrinth](https://modrinth.com/mod/nicewurst) and will now be the primary source for all updated compiled releases.
+
 ---
 
 ## What Makes NiceWurst Different
