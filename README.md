@@ -119,6 +119,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **EnchantmentHandler**: Overlays enchantment breakdowns in chest GUIs with quick-take actions.
 - **ItemHandler**: HUD/GUI for inspecting nearby dropped items, selecting pick/reject rules, and tracing.
 - **SignFramePT**: Right-click forwards interactions on item frames or signs to the block behind them (with hold-sneak to interact normally).
+- **QuickShulker**: Quickly dump your inventory or a chest to a shulker by auto placing, filling and breaking.
 
 
 > Everything else is excluded from the UI and *cannot* be toggled.
