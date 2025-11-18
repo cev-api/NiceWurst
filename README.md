@@ -22,16 +22,109 @@ This mod has been approved for listing on [Modrinth](https://modrinth.com/mod/ni
 
 ---
 
-## What Makes NiceWurst Different
+## What Makes NiceWurst Different to Wurst 7 CevAPI?
 
-When built with `-Pnicewurst=1`, the project automatically:
+**Config Separation**: The runtime folder is chosen with ```BuildConfig.NICE_WURST``` so config files go under ```.minecraft/nicewurst/```. This is to ensure the separation of [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) configurations from NiceWurst.
 
-- **Whitelists** a limited, survival-safe set of hacks.  
-- **Rebrands** the UI, Fabric metadata, and HUD to “NiceWurst”.  
-- **Hides** sensitive features like Alt Manager, Anti-Fingerprint, and X-Ray block manager.  
-- **Separates configs** under `.minecraft/nicewurst/`.  
-- **Enforces fair rendering** — ESPs and tracers obey depth testing (no wall-peek).  
-- **Changes mod ID** to `nicewurst`, allowing side-by-side installs with Wurst7-CevAPI.
+**Whitelisting**: The allowed set is implemented in ```NiceWurstModule.java``` via ```ALLOWED_HACKS``` (only those hacks remain enabled/visible) and ```ALLOWED_NAME_ONLY``` (e.g. ClickGUI, Navigator). This means once the project is compiled all other hacks remain inaccessible permanently.
+
+**Removing Sensitive Features**: Access to Alt Manager, Anti-Fingerprint, and the XRay blocks manager is controlled by ```NiceWurstModule.showAltManager()```, ```showAntiFingerprintControls()```, and ```showXrayBlocksManager()``` - they return false when NiceWurst is active (features remain in code but are disabled). These aren't needed, nor nice, so they are removed.
+
+**Render / No Wall‑Peek**: Depth-testing and tracer visibility enforcement are implemented in ```NiceWurstModule.java``` (```enforceDepthTest```, ```enforceDepthTest(RenderType)```, ```shouldEnforceTracerVisibility()```, ```shouldRenderTarget()```), and are applied in render utilities so ESPs/tracers obey depth tests for most callers (exceptions and exact caller lists are enumerated in the module such as ```net.wurstclient.hacks.WaypointsHack```). _This means that all ESP rendering does **not** pass through walls_.
+
+## White Listed/Allowed Features
+
+These features are what remains of the original [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client and were selected and or modified for their utility and to ensure there is no unfair advantage.
+
+### Blocks
+
+- **AutoBuild**: Automatically builds templates after you place a single starter block.
+- **AutoSign**: Instantly writes configured text to every sign you place or edit.
+- **AutoTool**: Auto-equips the fastest applicable tool from your hotbar when breaking a block.
+- **BuildRandom**: Randomly places blocks around you to create varied builds.
+- **Excavator**: Automatically breaks all blocks in the selected area for fast mining.
+- **InstantBunker**: Builds a small defensive bunker around you (requires 57 blocks).
+- **ScaffoldWalk**: Automatically places blocks beneath your feet for safe bridging and walking.
+- **TemplateTool**: Creates and applies custom AutoBuild templates by scanning existing structures.
+
+### Fun
+
+- **All fun-category hacks**: Enables novelty/visual/motion hacks (e.g., Derp, LSD, MileyCyrus, skin toggles) that produce humorous effects or animations.
+
+### Movement
+
+- **BunnyHop**: Makes you jump automatically to maintain momentum.
+- **AutoSprint**: Keeps you sprinting without holding the sprint key.
+- **AutoWalk**: Moves you forward continuously without input.
+- **AutoSwim**: Triggers the swimming animation/behavior automatically.
+- **Dolphin**: Causes you to bob up in water like a dolphin for easier aquatic movement.
+- **SafeWalk**: Prevents you from falling off edges.
+- **Sneak**: Automatically keeps you sneaking.
+- **InvWalk**: Allows movement while inventory or other GUIs are open.
+
+### Combat
+
+- **AutoRespawn**: Automatically respawns you whenever you die.
+- **AutoTotem**: Automatically moves totems of undying to your off-hand.
+- **AutoLeave**: Automatically leaves the server when your health is critically low.
+
+### Render
+
+- **Breadcrumbs**: Draws a visible trail showing where you have been.
+- **Fullbright**: Forces full brightness so you can see in the dark.
+- **HealthTags**: Shows other players' health values in their nametags.
+- **ItemESP**: Highlights nearby dropped items through terrain.
+- **LavaWaterESP**: Highlights only lava and water blocks for easy spotting.
+- **LogoutSpots**: Shows locations where players logged out.
+- **MobESP**: Highlights nearby mobs through walls and obstacles.
+- **MobSearch**: Helps find specific mobs by highlighting matches and supporting queries.
+- **MobSpawnESP**: Highlights areas where mobs can spawn.
+- **NewChunks**: Highlights newly generated chunks around you.
+- **NoBackground**: Removes the dark background behind GUI/inventory screens.
+- **NoFireOverlay**: Removes the fire overlay when you are on fire.
+- **NoVignette**: Removes the dark vignette effect at screen edges.
+- **NoWeather**: Changes or disables client-side weather/time/moon visuals.
+- **Freecam**: Lets you move the camera independently of your player.
+- **OpenWaterESP**: Shows whether you are fishing in open water and outlines the area.
+- **PlayerESP**: Highlights nearby players.
+- **PortalESP**: Highlights nearby portals.
+- **Radar**: Displays positions of nearby entities on a radar view.
+- **Search**: Highlights blocks or entities that match a search query.
+- **TrialChamberESP**: Highlights trial spawners/vaults with overlays and status info.
+- **TridentESP**: Highlights tridents in the world, with owner-based coloring options.
+- **Waypoints**: Lets you set and display custom world markers (including deaths).
+
+### Other
+
+- **AntiAFK**: Simulates movement to avoid AFK detection.
+- **AntiSocial**: Automatically disconnects when players enter your range.
+- **AutoFish**: Automates fishing, switching to better rods when found.
+- **AutoLibrarian**: Automates librarian villager training to produce specific enchanted books.
+- **AutoReconnect**: Automatically reconnects after a disconnect.
+- **CheatDetector**: Monitors nearby players and reports suspicious movement/combat.
+- **FeedAura**: Automatically feeds nearby animals (or allies) when applicable.
+- **Panic**: Instantly disables all enabled hacks as an emergency action.
+- **PortalGUI**: Enables GUIs inside portals for managing portal interactions.
+- **SafeTP**: Activates a Blink period and sends a teleport command while ensuring safety.
+- **TooManyHax**: Blocks or restricts unwanted features so you don't accidentally enable risky hacks.
+
+### Items
+
+- **AntiDrop**: Prevents accidental dropping of selected items (defaults to weapons/tools/shulker boxes).
+- **AutoDisenchant**: Automatically feeds items into a grindstone to remove enchantments.
+- **AutoDrop**: Automatically discards unwanted items from your inventory.
+- **AutoEat**: Automatically consumes food based on configured hunger/health thresholds.
+- **AutoSteal**: Automatically takes items from opened chests and shulker boxes based on filters.
+- **ChestSearch**: Scans opened chests for matching items and highlights valuable chests.
+- **EnchantmentHandler**: Overlays enchantment breakdowns in chest GUIs with quick-take actions.
+- **ItemHandler**: HUD/GUI for inspecting nearby dropped items, selecting pick/reject rules, and tracing.
+- **SignFramePT**: Right-click forwards interactions on item frames or signs to the block behind them (with hold-sneak to interact normally).
+
+
+> Everything else is excluded from the UI and *cannot* be toggled.
+
+## Reminder
+This is **NOT** a cheat, you **CANNOT** see ESP highlights through walls. This mod complies with section 3 of the [Modrinth Content Rules](https://modrinth.com/legal/rules).
 
 ---
 
@@ -79,47 +172,6 @@ NiceWurst-v7.51-MC1.21.10-sources.jar
 ~~~
 
 Drop the `NiceWurst-v7.51-MC1.21.10.jar` into your `.minecraft/mods/` folder to test.
-
----
-
-## NiceWurst Build Flag Explained
-
-| Area | Effect |
-|------|---------|
-| **Jar & metadata** | Renames output jar, swaps Fabric metadata to “NiceWurst”, and sets mod ID to `nicewurst`. |
-| **Config path** | Saves configs to `.minecraft/nicewurst/`, isolating from Wurst data. |
-| **Hack registry** | `NiceWurstModule` filters out non-allowed hacks before init. |
-| **UI elements** | Removes buttons for Alt Manager, Anti-Fingerprint, and X-Ray blocks. |
-| **Rendering** | ESP/Tracer rendering is forced to obey depth testing (no x-ray outlines). |
-| **Persistence** | Enabled hacks and favorites are preserved safely across restarts. |
-| **Distribution** | Separate mod ID means both Wurst and NiceWurst can be installed together. |
-
----
-
-## Allowed Features
-
-### **Blocks**
-AutoBuild · AutoSign · AutoTool · BuildRandom · Excavator · InstantBunker · ScaffoldWalk · TemplateTool
-
-### **Fun**
-All fun-category hacks
-
-### **Movement**
-BunnyHop · AutoSprint · AutoWalk · AutoSwim · Dolphin · SafeWalk · Sneak · InvWalk
-
-### **Combat**
-AutoRespawn · AutoTotem · AutoLeave
-
-### **Render**
-Breadcrumbs · Fullbright · HealthTags · ItemESP · LavaWaterESP · LogoutSpots · MobESP · MobSearch · MobSpawnESP · NewChunks · NoBackground · NoFireOverlay · NoVignette · NoWeather · Freecam · OpenWaterESP · PlayerESP · PortalESP · Radar · Search · TridentESP · Waypoints
-
-### **Other**
-AntiAFK · AntiSocial · AutoFish · AutoLibrarian · AutoReconnect · CheatDetector · FeedAura · Panic · PortalGUI · SafeTP · TooManyHax (ClickGUI/Navigator are preserved separately)
-
-### **Items**
-AntiDrop · AutoDisenchant · AutoDrop · AutoEat · AutoSteal · ChestSearch · EnchantmentHandler · SignFramePT
-
-> Everything else is excluded from the UI and *cannot* be toggled.
 
 ---
 
