@@ -1,4 +1,4 @@
-﻿# 🌸 NiceWurst — Build Guide
+﻿# 🌸 NiceWurst Build Guide
 
 ![NiceWurst](https://i.imgur.com/86vmxQi.png)
 
