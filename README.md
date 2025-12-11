@@ -35,7 +35,6 @@ This mod has been approved for listing on [Modrinth](https://modrinth.com/mod/ni
 ## White Listed/Allowed Features
 
 These features are what remains of the original [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client and were selected and or modified for their utility and to ensure there is no unfair advantage.
-
 ### Blocks
 
 - **AutoBuild**: Automatically builds templates after you place a single starter block.
@@ -106,6 +105,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **Panic**: Instantly disables all enabled hacks as an emergency action.
 - **PortalGUI**: Enables GUIs inside portals for managing portal interactions.
 - **SafeTP**: Activates a Blink period and sends a teleport command while ensuring safety.
+- **SeedMapperHelper**: UI for my fork of SeedMapper which covers all settings except for debug/dev mode.
 - **TooManyHax**: Blocks or restricts unwanted features so you don't accidentally enable risky hacks.
 
 ### Items
@@ -116,6 +116,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoEat**: Automatically consumes food based on configured hunger/health thresholds.
 - **AutoSteal**: Automatically takes items from opened chests and shulker boxes based on filters.
 - **ChestSearch**: Scans opened chests for matching items and highlights valuable chests.
+- **LootSearch**: Using my fork of SeedMapper you can export loot tables for selected/all structures and then parse that information using the same UI as ChestSearch.
 - **EnchantmentHandler**: Overlays enchantment breakdowns in chest GUIs with quick-take actions.
 - **ItemHandler**: HUD/GUI for inspecting nearby dropped items, selecting pick/reject rules, and tracing.
 - **SignFramePT**: Right-click forwards interactions on item frames or signs to the block behind them (with hold-sneak to interact normally).
