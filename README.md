@@ -44,6 +44,8 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **Excavator**: Automatically breaks all blocks in the selected area for fast mining.
 - **InstantBunker**: Builds a small defensive bunker around you (requires 57 blocks).
 - **ScaffoldWalk**: Automatically places blocks beneath your feet for safe bridging and walking.
+- **SilkOnly**: Allows you to setup a whitelist of Silk Touch only blocks which prevents you from breaking them without Silk Touch.
+- **TargetPlace**: Places blocks at your crosshair target with smoother and more reliable placement handling.
 - **TemplateTool**: Creates and applies custom AutoBuild templates by scanning existing structures.
 
 ### Fun
@@ -66,18 +68,25 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoRespawn**: Automatically respawns you whenever you die.
 - **AutoTotem**: Automatically moves totems of undying to your off-hand.
 - **AutoLeave**: Automatically leaves the server when your health is critically low.
+- **WindChargeKey**: Adds a key-driven wind charge movement utility for fast mobility tech.
 
 ### Render
 
 - **Breadcrumbs**: Draws a visible trail showing where you have been.
+- **DurabilityHUD**: Shows your armor and weapon/s as icons with durability %.
 - **Fullbright**: Forces full brightness so you can see in the dark.
 - **HealthTags**: Shows other players' health values in their nametags.
 - **ItemESP**: Highlights nearby dropped items through terrain.
+- **HideWurst**: Removes all rendering and mixins on the screen to become screenshot/share safe.
+- **HideModMenu**: Hide NiceWurst or other mods entirely from the Mod Menu.
 - **LavaWaterESP**: Highlights only lava and water blocks for easy spotting.
 - **LogoutSpots**: Shows locations where players logged out.
+- **MeasurementESP**: Draws a precise 1×1 ESP box at a fixed distance along your look direction.
 - **MobESP**: Highlights nearby mobs through walls and obstacles.
 - **MobSearch**: Helps find specific mobs by highlighting matches and supporting queries.
 - **MobSpawnESP**: Highlights areas where mobs can spawn.
+- **MobHealth**: Vanilla style health bar for mobs.
+- **NameTags**: Improves nametag visibility and readability at range.
 - **NewChunks**: Highlights newly generated chunks around you.
 - **NoBackground**: Removes the dark background behind GUI/inventory screens.
 - **NoFireOverlay**: Removes the fire overlay when you are on fire.
@@ -85,28 +94,41 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **NoWeather**: Changes or disables client-side weather/time/moon visuals.
 - **Freecam**: Lets you move the camera independently of your player.
 - **OpenWaterESP**: Shows whether you are fishing in open water and outlines the area.
+- **PearlESP**: Highlights thrown ender pearls to track their path and landing area.
 - **PlayerESP**: Highlights nearby players.
 - **PortalESP**: Highlights nearby portals.
 - **Radar**: Displays positions of nearby entities on a radar view.
 - **Search**: Highlights blocks or entities that match a search query.
-- **TrialChamberESP**: Highlights trial spawners/vaults with overlays and status info.
+- **TrialSpawnerESP**: Highlights trial spawners/vaults with overlays and status info.
 - **TridentESP**: Highlights tridents in the world, with owner-based coloring options.
+- **WardenESP**: Advanced Warden tracking with state labels, attack warnings, danger pulses, and configurable ESP visuals.
 - **Waypoints**: Lets you set and display custom world markers (including deaths).
 
 ### Other
 
 - **AntiAFK**: Simulates movement to avoid AFK detection.
 - **AntiSocial**: Automatically disconnects when players enter your range.
+- **AntiCheatDetect**: Tells you which Anti-Cheat is being used and warns you of setbacks.
 - **AutoFish**: Automates fishing, switching to better rods when found.
 - **AutoLibrarian**: Automates librarian villager training to produce specific enchanted books.
 - **AutoReconnect**: Automatically reconnects after a disconnect.
+- **AutoTrader**: Automates repetitive villager trading interactions to speed up selling/buying loops.
 - **CheatDetector**: Monitors nearby players and reports suspicious movement/combat.
+- **ChorusFruit Hack**: Automatically consumes chorus fruit based on combat or damage triggers, with silent switching and packet optimizations for fast teleports.
+- **DamageDetect**: Tells you what damaged you and where in the chat.
 - **FeedAura**: Automatically feeds nearby animals (or allies) when applicable.
+- **GameStats**: Shows FPS, TPS, Ping, Play Time, Packet Rate, Distance Walked, Mob Kills, Player Kills and XP Gained on and on-screen HUD.
+- **LiveStreamDetector**: Scans player list for people live streaming.
+- **MeasurementESP**: Adds a utility measurement overlay for quick visual distance checks.
+- **Navigator**: Keeps core hack navigation/search UI available for quick access.
 - **Panic**: Instantly disables all enabled hacks as an emergency action.
+- **PacketRate**: Tells you your packet rate per second and allows you to limit it.
 - **PortalGUI**: Enables GUIs inside portals for managing portal interactions.
 - **SafeTP**: Activates a Blink period and sends a teleport command while ensuring safety.
 - **SeedMapperHelper**: UI for my fork of SeedMapper which covers all settings except for debug/dev mode.
 - **TooManyHax**: Blocks or restricts unwanted features so you don't accidentally enable risky hacks.
+- **Towny**: Toggle your towns PVP while you're attacking.
+- **UI-Utils**: Adds interface utilities and small workflow improvements for inventory/screen handling.
 
 ### Items
 
@@ -120,8 +142,9 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **EnchantmentHandler**: Overlays enchantment breakdowns in chest GUIs with quick-take actions.
 - **ItemHandler**: HUD/GUI for inspecting nearby dropped items, selecting pick/reject rules, and tracing.
 - **SignFramePT**: Right-click forwards interactions on item frames or signs to the block behind them (with hold-sneak to interact normally).
+- **SusNoMore**: Instantly reveals suspicious sand and gravel loot on the first brush and auto-breaks blocks to save durability and time.
 - **QuickShulker**: Quickly dump your inventory or a chest to a shulker by auto placing, filling and breaking.
-
+- **XCarry**: Keeps extra inventory slots usable by preventing normal container-close behavior.
 
 > Everything else is excluded from the UI and *cannot* be toggled.
 
