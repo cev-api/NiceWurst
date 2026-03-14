@@ -242,3 +242,39 @@ Tweak the whitelist, update the branding if desired, then rebuild with:
 ```bash
 ./gradlew build -Pnicewurst=1
 ```
+
+## Wurst Addon API
+
+This Wurst fork now supports Meteor-style addons through a custom entrypoint using Fabric.
+
+- Entrypoint key: `wurst`
+- Entrypoint class type: `net.wurstclient.addons.WurstAddon`
+- Registration API:
+  - `addHack(Hack hack)`
+  - `addCommand(Command command)`
+  - `addOtherFeature(OtherFeature feature)`
+
+Minimal example:
+
+```java
+public final class MyAddon extends WurstAddon
+{
+	@Override
+	public void onInitialize()
+	{
+		addHack(new MyHack());
+		addCommand(new MyCommand());
+	}
+}
+```
+
+`fabric.mod.json` entrypoint example:
+
+```json
+"entrypoints": {
+  "wurst": ["com.example.addon.MyAddon"]
+}
+```
+
+A ready-to-publish starter project is included here: [https://github.com/cev-api/Wurst-Addon-Template](https://github.com/cev-api/Wurst-Addon-Template)
+
