@@ -1,6 +1,6 @@
 ﻿# 🌸 NiceWurst Build Guide
 
-![NiceWurst](https://i.imgur.com/86vmxQi.png)
+![ClickGUI](https://i.imgur.com/DhhqLX9.png)
 
 **NiceWurst** is a *cheat-free, survival-friendly* variant of the [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client.  
 It’s designed for players who want Wurst 7 CevAPI’s quality-of-life and creative utilities — without unfair features.
@@ -35,6 +35,7 @@ This mod has been approved for listing on [Modrinth](https://modrinth.com/mod/ni
 ## White Listed/Allowed Features
 
 These features are what remains of the original [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client and were selected and or modified for their utility and to ensure there is no unfair advantage.
+
 ### Blocks
 
 - **AutoBuild**: Automatically builds templates after you place a single starter block.
@@ -47,6 +48,13 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **SilkOnly**: Allows you to setup a whitelist of Silk Touch only blocks which prevents you from breaking them without Silk Touch.
 - **TargetPlace**: Places blocks at your crosshair target with smoother and more reliable placement handling.
 - **TemplateTool**: Creates and applies custom AutoBuild templates by scanning existing structures.
+- **MusicAura**: Automatically adjust all music boxes around you.
+
+### Chat
+- **AutoChat**: ChatGPT powered chat bot with your own custom persona and triggers.
+- **Mention**: Play one of the note block sounds whenever your name is mentioned in chat.
+- **NoPlayerChat**: Silence or filter chats.
+- **ForceAllowChats**: Modify your Mojang status to allow chats regardless of region/settings.
 
 ### Fun
 
@@ -68,12 +76,14 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoRespawn**: Automatically respawns you whenever you die.
 - **AutoTotem**: Automatically moves totems of undying to your off-hand.
 - **AutoLeave**: Automatically leaves the server when your health is critically low.
+- **PearlIntercept**: Automatically throws a pearl in the same place another player throws theirs.
 - **WindChargeKey**: Adds a key-driven wind charge movement utility for fast mobility tech.
 
 ### Render
 
 - **Breadcrumbs**: Draws a visible trail showing where you have been.
 - **DurabilityHUD**: Shows your armor and weapon/s as icons with durability %.
+- **ElytraInfo**: On screen display showing info on your flight and durability.
 - **Fullbright**: Forces full brightness so you can see in the dark.
 - **HealthTags**: Shows other players' health values in their nametags.
 - **ItemESP**: Highlights nearby dropped items through terrain.
@@ -88,6 +98,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **MobHealth**: Vanilla style health bar for mobs.
 - **NameTags**: Improves nametag visibility and readability at range.
 - **NewChunks**: Highlights newly generated chunks around you.
+- **NewerNewChunks**: Alternative to NewChunks which aims to work better.
 - **NoBackground**: Removes the dark background behind GUI/inventory screens.
 - **NoFireOverlay**: Removes the fire overlay when you are on fire.
 - **NoVignette**: Removes the dark vignette effect at screen edges.
@@ -106,7 +117,9 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 
 ### Other
 
+- **AdvancedPacketTool**: Log, delay and deny specific packets.
 - **AntiAFK**: Simulates movement to avoid AFK detection.
+- **Anti-ESP Detector**: Informs you of servers modifying blocks around you.
 - **AntiSocial**: Automatically disconnects when players enter your range.
 - **AntiCheatDetect**: Tells you which Anti-Cheat is being used and warns you of setbacks.
 - **AutoFish**: Automates fishing, switching to better rods when found.
@@ -115,6 +128,8 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoTrader**: Automates repetitive villager trading interactions to speed up selling/buying loops.
 - **CheatDetector**: Monitors nearby players and reports suspicious movement/combat.
 - **ChorusFruit Hack**: Automatically consumes chorus fruit based on combat or damage triggers, with silent switching and packet optimizations for fast teleports.
+- **ClientChatOverlay**: Lets you separate all Wurst (and other) non-chats from chats.
+- **CommandScanner**: Enumerate server commands.
 - **DamageDetect**: Tells you what damaged you and where in the chat.
 - **FeedAura**: Automatically feeds nearby animals (or allies) when applicable.
 - **GameStats**: Shows FPS, TPS, Ping, Play Time, Packet Rate, Distance Walked, Mob Kills, Player Kills and XP Gained on and on-screen HUD.
@@ -123,6 +138,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **Navigator**: Keeps core hack navigation/search UI available for quick access.
 - **Panic**: Instantly disables all enabled hacks as an emergency action.
 - **PacketRate**: Tells you your packet rate per second and allows you to limit it.
+- **PerformanceOverlay**: Live stats about how each hack is performing.
 - **PortalGUI**: Enables GUIs inside portals for managing portal interactions.
 - **SafeTP**: Activates a Blink period and sends a teleport command while ensuring safety.
 - **SeedMapperHelper**: UI for my fork of SeedMapper which covers all settings except for debug/dev mode.
@@ -146,10 +162,16 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **QuickShulker**: Quickly dump your inventory or a chest to a shulker by auto placing, filling and breaking.
 - **XCarry**: Keeps extra inventory slots usable by preventing normal container-close behavior.
 
-> Everything else is excluded from the UI and *cannot* be toggled.
+### AltGUI
+
+- Now features the new AltGUI which is available by pressing your left ALT key!
+
+![AltGUI](https://i.imgur.com/JrHFqZN.png)
 
 ## Reminder
 This is **NOT** a cheat, you **CANNOT** see ESP highlights through walls. This mod complies with section 3 of the [Modrinth Content Rules](https://modrinth.com/legal/rules).
+
+> All other [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) hacks are excluded from the UI and *cannot* be toggled even via commands - They simply do not exist from NiceWurst's perspective! 
 
 ---
 
