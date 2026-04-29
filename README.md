@@ -1,5 +1,7 @@
 ﻿# 🌸 NiceWurst Build Guide
 
+ ![Nice](https://i.imgur.com/Yd5er9y.png)
+
 ![ClickGUI](https://i.imgur.com/DhhqLX9.png)
 
 **NiceWurst** is a *cheat-free, survival-friendly* variant of the [Wurst7-CevAPI](https://github.com/cev-api/Wurst7-CevAPI) client.  
@@ -41,8 +43,11 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoBuild**: Automatically builds templates after you place a single starter block.
 - **AutoSign**: Instantly writes configured text to every sign you place or edit.
 - **AutoTool**: Auto-equips the fastest applicable tool from your hotbar when breaking a block.
+- **BedBreakAura**: Break all beds around you.
+- **BedrockEscape**: Move through through the bedrock roof/floor with ease.
 - **BuildRandom**: Randomly places blocks around you to create varied builds.
 - **Excavator**: Automatically breaks all blocks in the selected area for fast mining.
+- **HandNoClip**: Interact with blocks behind other blocks.
 - **InstantBunker**: Builds a small defensive bunker around you (requires 57 blocks).
 - **ScaffoldWalk**: Automatically places blocks beneath your feet for safe bridging and walking.
 - **SilkOnly**: Allows you to setup a whitelist of Silk Touch only blocks which prevents you from breaking them without Silk Touch.
@@ -77,10 +82,12 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **AutoTotem**: Automatically moves totems of undying to your off-hand.
 - **AutoLeave**: Automatically leaves the server when your health is critically low.
 - **PearlIntercept**: Automatically throws a pearl in the same place another player throws theirs.
+- **ShieldSwing**: Auto hold shield up and attack through it.
 - **WindChargeKey**: Adds a key-driven wind charge movement utility for fast mobility tech.
 
 ### Render
 
+- **BedrockStash**: Shows where there are pockets of space within bedrock to hide things (Use HandNoClip).
 - **Breadcrumbs**: Draws a visible trail showing where you have been.
 - **DurabilityHUD**: Shows your armor and weapon/s as icons with durability %.
 - **ElytraInfo**: On screen display showing info on your flight and durability.
@@ -91,6 +98,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **HideModMenu**: Hide NiceWurst or other mods entirely from the Mod Menu.
 - **LavaWaterESP**: Highlights only lava and water blocks for easy spotting.
 - **LogoutSpots**: Shows locations where players logged out.
+- **Mapa**: Real world rendered minimap With ESP features.
 - **MeasurementESP**: Draws a precise 1×1 ESP box at a fixed distance along your look direction.
 - **MobESP**: Highlights nearby mobs through walls and obstacles.
 - **MobSearch**: Helps find specific mobs by highlighting matches and supporting queries.
@@ -101,6 +109,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **NewerNewChunks**: Alternative to NewChunks which aims to work better.
 - **NoBackground**: Removes the dark background behind GUI/inventory screens.
 - **NoFireOverlay**: Removes the fire overlay when you are on fire.
+- **NoShieldOverlay**: Move the shield down to improve your view.
 - **NoVignette**: Removes the dark vignette effect at screen edges.
 - **NoWeather**: Changes or disables client-side weather/time/moon visuals.
 - **Freecam**: Lets you move the camera independently of your player.
@@ -142,6 +151,7 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 - **PortalGUI**: Enables GUIs inside portals for managing portal interactions.
 - **SafeTP**: Activates a Blink period and sends a teleport command while ensuring safety.
 - **SeedMapperHelper**: UI for my fork of SeedMapper which covers all settings except for debug/dev mode.
+- **SpectatorMonitor**: Monitor for users going in and out of spectator mode.
 - **TooManyHax**: Blocks or restricts unwanted features so you don't accidentally enable risky hacks.
 - **Towny**: Toggle your towns PVP while you're attacking.
 - **UI-Utils**: Adds interface utilities and small workflow improvements for inventory/screen handling.
@@ -164,9 +174,15 @@ These features are what remains of the original [Wurst7-CevAPI](https://github.c
 
 ### AltGUI
 
-- Now features the new AltGUI which is available by pressing your left ALT key!
+- Now features the new AltGUI which is available by pressing your right ALT key!
 
 ![AltGUI](https://i.imgur.com/JrHFqZN.png)
+
+### XPGUI
+
+- Remember Windows XP!?
+  
+![XPGUI](https://i.imgur.com/d5iDhwj.png)
 
 ## Reminder
 This is **NOT** a cheat, you **CANNOT** see ESP highlights through walls. This mod complies with section 3 of the [Modrinth Content Rules](https://modrinth.com/legal/rules).
